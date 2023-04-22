@@ -5,7 +5,15 @@ import { Prisma, Pet } from '@prisma/client'
 export class InMemoryPetsRepository implements PetsRepository {
   public pets: Pet[] = []
 
-  async create(data: Prisma.PetUncheckedCreateInput): Promise<Pet> {
+  async fetchManyByCity(city: string, page: number) {
+    const pets = this.pets
+      .filter((pet) => pet.city === city)
+      .slice((page - 1) * 20, page * 20)
+
+    return pets
+  }
+
+  async create(data: Prisma.PetUncheckedCreateInput) {
     const pet = {
       id: randomUUID(),
       age: data.age,
