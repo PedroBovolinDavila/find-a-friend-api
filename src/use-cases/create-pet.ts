@@ -1,5 +1,7 @@
+import { OrgsRepository } from '@/repositories/orgs-repository'
 import { PetsRepository } from '@/repositories/pets-repository'
 import { EnergyLevel, Age, Sex, Size, Behavior } from '@prisma/client'
+import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 interface CreatePetUseCaseParams {
   name: string
@@ -16,7 +18,10 @@ interface CreatePetUseCaseParams {
 }
 
 export class CreatePetUseCase {
-  constructor(private petsRepository: PetsRepository) {}
+  constructor(
+    private petsRepository: PetsRepository,
+    private orgsRepository: OrgsRepository,
+  ) {}
 
   async execute({
     age,
@@ -31,6 +36,12 @@ export class CreatePetUseCase {
     size,
     species,
   }: CreatePetUseCaseParams) {
+    const orgExists = await this.orgsRepository.findById(orgId)
+
+    if (!orgExists) {
+      throw new ResourceNotFoundError('Org')
+    }
+
     const pet = await this.petsRepository.create({
       age,
       behavior,
