@@ -1,17 +1,15 @@
 import { PetsRepository, SearchParams } from '@/repositories/pets-repository'
 
-interface FetchPetsByCityUseCaseParams {
+interface SearchPetsUseCaseParams {
   searchParams: SearchParams
   page: number
 }
 
-export class FetchPetsByCityUseCase {
+export class SearchPetsUseCase {
   constructor(private petsRepository: PetsRepository) {}
 
-  async execute({ searchParams, page }: FetchPetsByCityUseCaseParams) {
-    const pets = await this.petsRepository.fetchManyByCity(searchParams, page)
-
-    // TODO: Criar testes
+  async execute({ searchParams, page }: SearchPetsUseCaseParams) {
+    const pets = await this.petsRepository.searchPets(searchParams, page)
 
     return {
       pets,
