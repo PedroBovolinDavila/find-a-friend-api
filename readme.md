@@ -8,7 +8,7 @@
 
 [x] - Deve ser possível filtrar pets por suas características
 
-[] - Deve ser possível visualizar detalhes de um pet para adoção
+[x] - Deve ser possível visualizar detalhes de um pet para adoção
 
 [] - Deve ser possível se cadastrar como uma ORG
 

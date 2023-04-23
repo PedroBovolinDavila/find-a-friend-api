@@ -48,7 +48,7 @@ model Org {
   owner_name     String
   cep            String
   address        String
-  contact_number String @unique
+  contact_number String
   email          String @unique
   password_hash  String
 
