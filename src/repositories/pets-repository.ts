@@ -20,6 +20,6 @@ export interface SearchParams {
 }
 
 export interface PetsRepository {
-  fetchManyByCity(searchParams: SearchParams, page: number): Promise<Pet[]>
+  searchPets(searchParams: SearchParams, page: number): Promise<Pet[]>
   create(data: Prisma.PetUncheckedCreateInput): Promise<Pet>
 }

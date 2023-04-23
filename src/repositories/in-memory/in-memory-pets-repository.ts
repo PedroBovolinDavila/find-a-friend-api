@@ -5,7 +5,7 @@ import { Prisma, Pet } from '@prisma/client'
 export class InMemoryPetsRepository implements PetsRepository {
   public pets: Pet[] = []
 
-  async fetchManyByCity(
+  async searchPets(
     {
       city,
       age,
