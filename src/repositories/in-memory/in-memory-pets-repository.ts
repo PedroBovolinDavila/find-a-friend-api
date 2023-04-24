@@ -6,16 +6,7 @@ export class InMemoryPetsRepository implements PetsRepository {
   public pets: Pet[] = []
 
   async searchPets(
-    {
-      city,
-      age,
-      behavior,
-      energyLevel,
-      requirements,
-      sex,
-      size,
-      species,
-    }: SearchParams,
+    { city, age, behavior, energyLevel, sex, size, species }: SearchParams,
     page: number,
   ) {
     let pets = this.pets.filter((pet) => pet.city === city)
@@ -37,9 +28,6 @@ export class InMemoryPetsRepository implements PetsRepository {
     }
     if (behavior) {
       pets = pets.filter((pet) => pet.behavior === behavior)
-    }
-    if (requirements) {
-      pets = pets.filter((pet) => pet.requirements === requirements)
     }
 
     pets = pets.slice((page - 1) * 20, page * 20)
