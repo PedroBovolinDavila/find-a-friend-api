@@ -4,8 +4,6 @@ import { prisma } from '@/lib/prisma'
 
 export class PrismaPetsRepository implements PetsRepository {
   async searchPets(searchParams: SearchParams, page: number) {
-    console.log(typeof searchParams.behavior)
-
     const pets = await prisma.pet.findMany({
       where: {
         city: searchParams.city,
