@@ -1,29 +1,96 @@
-# Find A Friend - api
+# Find A Friend - API
 
-## Regras da aplicação
+## Environment Variables
 
-[x] - Deve ser possível cadastrar um pet.
+To run this project, you will need to add the following environment variables to your .env file
 
-[x] - Deve ser possível listar todos os pets disponíveis para adoção em uma cidade
+`DATABASE_URL`
 
-[x] - Deve ser possível filtrar pets por suas características
+`JWT_SECRET`
 
-[x] - Deve ser possível visualizar detalhes de um pet para adoção
 
-[x] - Deve ser possível se cadastrar como uma ORG
+## Run Locally
 
-[x] - Deve ser possível realizar login como uma ORG
+### Notes:
+- To run this project you need to have docker installed on your computer
+- Don't forget to set the environment variables in .env file
 
-## Regras de negócio
+### Steps
 
-[x] - Para listar os pets, obrigatoriamente precisamos informar a cidade
+Clone the project
 
-[x] - Uma ORG precisa ter um endereço e um número de WhatsApp
+```bash
+  git clone https://github.com/PedroBovolinDavila/find-a-friend-api.git
+```
 
-[x] - Um pet deve estar ligado a uma ORG
+Go to the project directory
 
-[] - O usuário que quer adotar, entrará em contato com a ORG via WhatsApp
+```bash
+  cd find-a-friend-api
+```
 
-[x] - Todos os filtros, além da cidade, são opcionais
+Install dependencies
 
-[] - Para uma ORG acessar a aplicação como admin, ela precisa estar logada
+```bash
+  npm install
+```
+
+Start docker compose
+
+```bash
+  docker compose up -d
+```
+
+Run migrations
+
+```bash
+  npx prisma migrate dev
+```
+
+Start the server
+
+```bash
+  npm run start:dev
+```
+
+
+## Running Tests
+
+### Unit tests
+
+```bash
+  npm run test
+```
+
+### E2E tests
+
+Create the vitest-environment-prisma
+
+```bash
+  npm link prisma/vitest-environment-prisma
+```
+
+Install the vitest-environment-prisma
+
+```bash
+  npm link 
+```
+
+Run tests
+
+```bash
+  npm run test:e2e
+```
+
+## Tech Stack
+
+- Fastify
+- Typescript
+- Docker
+- PostgreSQL
+- Vitest
+
+## Authors
+
+- [@pedrobovolindavila](https://www.github.com/pedrobovolindavila)
+
