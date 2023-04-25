@@ -15,7 +15,10 @@ export class GetPetDetailsUseCase {
       throw new ResourceNotFoundError('Pet')
     }
 
-    Reflect.deleteProperty(pet.org!, 'password_hash')
+    if (pet.org) {
+      Reflect.deleteProperty(pet.org, 'password_hash')
+    }
+
     Reflect.deleteProperty(pet, 'org_id')
 
     return {
