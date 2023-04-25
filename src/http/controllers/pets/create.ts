@@ -16,14 +16,18 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
     behavior: z.array(
       z.enum(['FRIENDLY', 'SOCIABLE', 'CALM', 'AGITATED', 'ANGRY', 'NERVOUS']),
     ),
-    orgId: z.string().uuid(),
   })
+
+  const orgId = request.user.sub
 
   const data = createPetBodySchema.parse(request.body)
 
   const createPetUseCase = makeCreatePetUseCase()
 
-  await createPetUseCase.execute(data)
+  await createPetUseCase.execute({
+    ...data,
+    orgId,
+  })
 
   return reply.status(201).send()
 }

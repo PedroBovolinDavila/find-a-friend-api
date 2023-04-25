@@ -42,6 +42,11 @@ enum EnergyLevel {
   HIGH
 }
 
+enum Role {
+  MEMBER
+  ADMIN
+}
+
 model Org {
   id             String @id @default(uuid())
   name           String
@@ -51,6 +56,7 @@ model Org {
   contact_number String
   email          String @unique
   password_hash  String
+  role           Role   @default(MEMBER)
 
   pets Pet[]
 
