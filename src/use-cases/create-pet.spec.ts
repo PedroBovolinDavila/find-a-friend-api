@@ -44,7 +44,7 @@ describe('Create Pet Use Case', () => {
     expect(pet.id).toEqual(expect.any(String))
   })
 
-  it('it should not be possible to create a pet in a non-existent org', async () => {
+  it('should not be able to create a pet in a non-existent org', async () => {
     await expect(() =>
       sut.execute({
         name: 'Rex',
