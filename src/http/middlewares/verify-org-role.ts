@@ -7,7 +7,7 @@ export function verifyOrgRole(roleToVerify: Role) {
 
     if (orgRole !== roleToVerify) {
       return reply.status(401).send({
-        message: 'You do not have permissions to access this features.',
+        message: 'You do not have permissions to access this feature.',
       })
     }
   }

@@ -18,6 +18,8 @@ export class PrismaPetsRepository implements PetsRepository {
           },
         }),
       },
+      take: 20,
+      skip: (page - 1) * 20,
     })
 
     return pets

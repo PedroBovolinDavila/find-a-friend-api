@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "tsx watch src/server.ts",
-    "test": "vitest run",
+    "test": "vitest run --dir src/use-cases",
     "test:e2e": "vitest run --dir src/http"
   },
   "keywords": [],
@@ -15,6 +15,7 @@
     "@rocketseat/eslint-config": "1.2.0",
     "@types/bcryptjs": "2.4.2",
     "@types/node": "^18.15.13",
+    "@types/supertest": "2.0.12",
     "eslint": "^8.39.0",
     "prisma": "^4.13.0",
     "supertest": "6.3.3",
