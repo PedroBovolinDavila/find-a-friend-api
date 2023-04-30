@@ -22,7 +22,7 @@
 
 [x] - Um pet deve estar ligado a uma ORG
 
-[] - O usuário que quer adotar, entrará em contato com a ORG via WhatsApp
+[x] - O usuário que quer adotar, entrará em contato com a ORG via WhatsApp
 
 [x] - Todos os filtros, além da cidade, são opcionais
 
