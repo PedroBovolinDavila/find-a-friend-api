@@ -67,13 +67,14 @@ Start the server
 Create the vitest-environment-prisma
 
 ```bash
-  npm link prisma/vitest-environment-prisma
+  cd prisma/vitest-environment-prisma
+  npm link
 ```
 
 Install the vitest-environment-prisma
 
 ```bash
-  npm link 
+  npm link vitest-environment-prisma
 ```
 
 Run tests
